@@ -14,7 +14,7 @@ int main(){
     scanf("%d", &chute);
     printf("seu chute foi: %d \n", chute);
 
-    
 
+    
 }
 
