@@ -23,17 +23,21 @@ int main(){
         int maior = chute > secret_num;
         int menor  = chute < secret_num;
 
-        if (acertou){
+        if(chute < 0){
+            printf("Você não pode chutar numeros negativos\n");
+            i--;
+
+            continue;
+        }
+        else if(acertou){
             printf("Você acertou!!\n");
             break;
         }
         else if(maior){
-            printf("Seu chute foi: %d\n", chute);
             printf("Você errou!! tente novamente\n");
             printf("Seu chute foi maior que o numero secreto!!\n");
         }
         else{
-            printf("Seu chute foi: %d\n", menor);
             printf("Você errou!! tente novamente\n");
             printf("Seu chute foi menor que o numero secreto!!\n");
         }
