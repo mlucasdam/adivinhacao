@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
     
@@ -26,16 +27,16 @@ int main(){
         int acertou = chute == secret_num;
         int maior = chute > secret_num;
 
-        double pontosPerdidos = (chute - secret_num) / 2.0;
-        if (pontosPerdidos < 0){
-            pontosPerdidos = pontosPerdidos*-1;
-        }
+        int divisor = 2;
 
         if(chute < 0){
             printf("Você não pode chutar numeros negativos\n");
             continue;
         }
-        else if(acertou){
+
+        double pontosPerdidos = abs((chute - secret_num) / (double)divisor);
+
+        if(acertou){
             printf("Você Venceu!!\n");
             printf("Você acertou em: %d tentativas\n", tentativas);
             break;
