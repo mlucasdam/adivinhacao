@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define VIDAS 3
-
 int main(){
     
     // Imprime o cabeçalho do jogo 
@@ -12,8 +10,12 @@ int main(){
     int secret_num = 42;
     int chute;
 
-    for(int i = 1; i <= VIDAS; i++){
-        printf("Tentaiva: %d de %d\n", i, VIDAS);
+    int ganhou = 0;
+    int tentativas = 1;
+
+    while (1){
+
+        printf("Tentaiva: %d\n", tentativas);
         printf("Qual é seu chute?");
 
         scanf("%d", &chute);
@@ -21,16 +23,14 @@ int main(){
 
         int acertou = chute == secret_num;
         int maior = chute > secret_num;
-        int menor  = chute < secret_num;
 
         if(chute < 0){
             printf("Você não pode chutar numeros negativos\n");
-            i--;
-
             continue;
         }
         else if(acertou){
-            printf("Você acertou!!\n");
+            printf("Você Venceu!!\n");
+            printf("Você acertou em: %d tentativas\n", tentativas);
             break;
         }
         else if(maior){
@@ -42,6 +42,7 @@ int main(){
             printf("Seu chute foi menor que o numero secreto!!\n");
         }
 
+        tentativas++;
     }
 
     printf("Fim de jogo!\n");    
